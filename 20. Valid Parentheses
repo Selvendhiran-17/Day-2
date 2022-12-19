@@ -1,0 +1,24 @@
+class Solution {
+    public boolean isValid(String s) {
+        Stack<Character> sa=new Stack<>();
+        for(int i=0;i<s.length();i++){
+            char h=s.charAt(i);
+             if(h=='('||h=='{'||h=='['){
+                 sa.push(h);
+             }
+             else{
+                 if(sa.isEmpty()){
+                     return false;
+                 }
+                 char j=sa.pop();
+                 if((h=='}'&&j=='{')||(h==']'&&j=='[')||(h==')'&&j=='(')){
+                     continue;
+                    // sa.pop();
+                 }
+                 else{
+                     return false;
+                 }
+             }
+        }
+        return sa.isEmpty();
+    }
